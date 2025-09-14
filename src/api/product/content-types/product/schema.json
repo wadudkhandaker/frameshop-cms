@@ -71,10 +71,13 @@
       "type": "enumeration",
       "enum": [
         "trending",
-        "featured",
-        "popular",
-        "new",
-        "limited"
+        "rugby",
+        "soccer",
+        "tennis",
+        "cricket",
+        "basketball",
+        "sports-memorabilia",
+        "canvas-artworks"
       ]
     },
     "financingInfo": {

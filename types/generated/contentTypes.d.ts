@@ -578,7 +578,16 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   attributes: {
     badges: Schema.Attribute.Relation<'oneToMany', 'api::badge.badge'>;
     categories: Schema.Attribute.Enumeration<
-      ['trending', 'featured', 'popular', 'new', 'limited']
+      [
+        'trending',
+        'rugby',
+        'soccer',
+        'tennis',
+        'cricket',
+        'basketball',
+        'sports-memorabilia',
+        'canvas-artworks',
+      ]
     >;
     code: Schema.Attribute.String &
       Schema.Attribute.Required &
