@@ -1,0 +1,93 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "productStatus": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "in-stock",
+        "sold-out",
+        "limited",
+        "trending",
+        "out-of-stock"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "shortDescription": {
+      "type": "text"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "deliveryInfo": {
+      "type": "richtext"
+    },
+    "specifications": {
+      "type": "richtext"
+    },
+    "frame": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::frame.frame",
+      "inversedBy": "products"
+    },
+    "categories": {
+      "type": "enumeration",
+      "enum": [
+        "trending",
+        "featured",
+        "popular",
+        "new",
+        "limited"
+      ]
+    },
+    "financingInfo": {
+      "type": "string"
+    },
+    "sku": {
+      "type": "string"
+    },
+    "badges": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::badge.badge",
+      "mappedBy": "product"
+    }
+  }
+}

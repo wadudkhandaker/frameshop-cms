@@ -133,6 +133,29 @@
         "videos",
         "audios"
       ]
+    },
+    "frameType": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "frame"
+    },
+    "financingInfo": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "Or up to 6 months interest free. Fees apply."
     }
   }
 }
