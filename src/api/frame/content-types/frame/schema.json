@@ -15,7 +15,13 @@
     }
   },
   "attributes": {
-    "code": {
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "frame"
+    },
+    "style_code": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -25,55 +31,127 @@
       "required": true,
       "unique": true
     },
-    "width": {
-      "type": "integer",
+    "name": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "depth": {
-      "type": "integer",
+    "width_cm": {
+      "type": "decimal",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
-    "rebate": {
-      "type": "integer",
+    "depth_cm": {
+      "type": "decimal",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
+    },
+    "rebate_cm": {
+      "type": "decimal",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
     },
     "material": {
-      "type": "string",
+      "type": "enumeration",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true,
+      "enum": [
+        "Wood",
+        "Metal",
+        "Aluminium",
+        "Composite",
+        "Plastic"
+      ]
     },
-    "color": {
-      "type": "string",
+    "colour": {
+      "type": "enumeration",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true,
+      "enum": [
+        "Black",
+        "White",
+        "Raw Oak",
+        "Black Grain",
+        "White Grain",
+        "Silver",
+        "Gold",
+        "Antique Gold",
+        "Red",
+        "Blue",
+        "Green",
+        "Natural",
+        "Walnut",
+        "Mahogany",
+        "Cherry",
+        "Ash",
+        "Pine"
+      ]
     },
-    "priceRate": {
+    "price_rate": {
       "type": "integer",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
-    "isPopular": {
+    "cross_section_image": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "preview_image": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "is_popular": {
       "type": "boolean",
       "pluginOptions": {
         "i18n": {
@@ -81,8 +159,16 @@
         }
       }
     },
-    "isOnSale": {
+    "is_on_sale": {
       "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "max_length_cm": {
+      "type": "integer",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -96,45 +182,19 @@
           "localized": true
         }
       },
+      "required": true,
       "enum": [
         "Popular",
         "On Sale",
         "Black",
-        "White"
+        "White",
+        "Raw Timber",
+        "Stains",
+        "Metal",
+        "Premium"
       ]
-    },
-    "maxLength": {
-      "type": "integer",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
     },
     "description": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "image": {
-      "type": "media",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "multiple": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "frameType": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -142,20 +202,13 @@
         }
       }
     },
-    "products": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::product.product",
-      "mappedBy": "frame"
-    },
-    "financingInfo": {
-      "type": "string",
+    "is_active": {
+      "type": "boolean",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "default": "Or up to 6 months interest free. Fees apply."
+      }
     }
   }
 }
